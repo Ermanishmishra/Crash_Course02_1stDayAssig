@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components in React</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Write your code here
+    let rootElement = document.getElementById("root")
+
+    function Find(){
+        return (<div style={{textAlign:"center", padding:"10px", width:"300px"}}>
+            <button style={{backgroundColor:"lightgreen", color:"bold", borderRadius:"5px", border:"none", padding:"8px"}}>02</button>
+            <h1 style={{fontFamily:"sans-serif", fontSize:"20px"}}>Find your template</h1>
+            <p style={{fontFamily:"sans-serif",fontSize:"15px"}}>Every template is embedded within an iframe, so you can easly check what they look like and test the responsive behaviour</p>
+        </div>)
+    }
+
+    function Copy(){
+        return (<div style={{textAlign:"center", padding:"10px", width:"300px"}}>
+            <button style={{backgroundColor:"lightgreen", color:"bold", borderRadius:"5px", border:"none", padding:"8px"}}>02</button>
+            <h1 style={{fontFamily:"sans-serif", fontSize:"20px"}}>Copy the code</h1>
+            <p style={{fontFamily:"sans-serif", fontSize:"15px"}}>Click the code tab to see the actual sourse code of the template. Copy and paste at into your project and adjust it to your needs</p>
+        </div>)
+    }
+
+    function Enjoy(){
+        return (<div style={{textAlign:"center", padding:"10px", width:"300px"}}>
+            <button style={{backgroundColor:"lightgreen", color:"bold", borderRadius:"5px", border:"none", padding:"8px"}}>02</button>
+            <h1 style={{fontFamily:"sans-serif", fontSize:"20px"}}>Enjoy your free time</h1>
+            <p style={{fontFamily:"sans-serif", fontSize:"15px"}}>You have just save yourself a bunch of time not building same stuff of over and over again. Enjoy your free time, and build business features</p>
+        </div>)
+    }
+
+    function App(){
+       
+        return (
+            <div style={{textAlign:"center"}}>
+                <h1>Getting started in <b style={{color:"lightgreen"}}>3 easy steps</b></h1>
+            
+            <div style = {{display:"flex", justifyContent:"space-evenly", textAlign:"center", width:"80%",margin:"auto",marginBottom:"200px"}}>
+        
+            <Find/>
+            <Copy/>
+            <Enjoy/>
+        </div>
+        </div>
+    )
+    
+    }
+
+    ReactDOM.createRoot(rootElement).render(<App/>)
+  </script>
+</body>
+</html>
