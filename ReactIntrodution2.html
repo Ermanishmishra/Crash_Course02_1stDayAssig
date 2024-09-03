@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <style>
+    .features{
+        display: flex;
+        justify-content: space-around;
+    }
+    .darkBlue{
+      color: lightblue;
+      font-size: 25px;
+    }
+    p{
+      font-size: 25px;
+    }
+    img{
+      width: 60%;
+      height: 300px;
+    }
+    h3{
+      color: peru;
+    }
+    .addCart{
+      text-align: center;
+      border: 1px solid black;
+      color: white;
+      background-color: black;
+      padding: 5px;
+
+    }
+    
+  </style>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      let rootElement = document.getElementById("root")
+
+      let Element = <>
+      <img src="https://media.istockphoto.com/id/1333645489/vector/watch-classic-logo-icon-design.jpg?s=612x612&w=0&k=20&c=2fpXgnW28KngD4lqtzIo0-0BPWF1br7I2vhAso4IG9M=" alt=""/>
+      <h1>Automatic Watch</h1>
+      <p>$350.00 USD</p>
+      <br/>
+      <p className = "darkBlue">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus officiis ullam labore tenetur.</p>
+      <br/>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos id quaerat neque sunt totam labore officia debitis.</p>
+      <br/>
+      <h3>FEATURES</h3>
+      <br/>
+      <div className = "features">
+        <div>
+          <p>Chronograph</p>
+          <p>Master Chronometer Certified</p>
+          <p>Tachymeter</p>
+        </div>
+        <div>
+          <p>Anti-magnetic</p>
+          <p>Chronometer</p>
+          <p>Small Seconds</p>
+        </div>
+      </div>
+      <h3>PRODUCT DETAILS</h3>
+      <p><b>Between lugs : </b>20mm</p>
+      <p><b>Bracelet : </b>leather strap</p>
+      <p><b>Case : </b>Steel</p>
+      <p><b>Case diameter : </b>42mm</p>
+      <p><b>Dial Color : </b>Black</p>
+      <p><b>Crystal : </b>Domed scratch-resistant sapphire crystal with anti-reflective treatment inside</p>
+      <p><b>Water resistance : </b>5 bar (50 meters / 167 feet)</p>
+      <br/>
+      <div className="addCart">
+        <p>ADD TO CART</p>
+      </div>
+      </>
+    ReactDOM.createRoot(rootElement).render(Element)
+    </script>
+  </body>
+</html>

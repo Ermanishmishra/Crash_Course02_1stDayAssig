@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      let rootElement = document.getElementById("root")
+      
+      let Element = <>
+        <div style = {{textAlign:"center"}}>
+          <img src="https://cdn-icons-png.flaticon.com/128/732/732200.png" alt=""/>
+          <h1 style = {{fontSize: "30px"}}>SUBSCRIBE</h1>
+          <p style = {{fontSize: "30px", }}>Subscribe to our newsletter & stay up to date!</p>
+          <div style = {{margin:"20px"}}>
+            <input style = {{padding:"15px", borderRadius:"40px", fontSize:"25px", backgroundColor:"lightblue"}} type="text" placeHolder = "john@deo.net"/>
+            
+            <button style = {{padding:"15px", borderRadius:"40px", fontSize:"25px", backgroundColor:"blue", color:"white" , marginLeft:"20px"}}>Subscribe</button>
+          </div>
+        </div>
+      </>
+      ReactDOM.createRoot(rootElement).render(Element)
+      
+    </script>
+  </body>
+</html>
