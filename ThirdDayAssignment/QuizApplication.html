@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        let rootElement = document.getElementById("root")
+
+        const { useState } = React;
+
+        const questions = [
+            {
+                question: "1. What is the capital of France?",
+                options: ["Paris", "London", "Berlin", "Rome"],
+                correctAnswer: "Paris"
+            },
+            {
+                question: "2. What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                correctAnswer: "4"
+            },
+            {
+                question: "3. What does CSS stand for, and what is its primary purpose?",
+                options: ["Mars", "Venus", "Jupiter", "Mercury"],
+                correctAnswer: "Mars"
+            },
+            {
+                question: "4. Explain the difference between == and === operators in JavaScript.?",
+                options: ["Value vs. Value and Type", "Same", "Deep vs. Shallow", "other"],
+                correctAnswer: "Value vs. Value and Type"
+            },
+            {
+                question: "5. What is the difference between GET and POST methods in HTTP?",
+                options: [" Retrieving vs. Submitting", "No Difference", " Appending vs. Sending", "other"],
+                correctAnswer: " Retrieving vs. Submitting"
+            },
+            {
+                question: "6. Explain the concept of recursion in programming, and provide an example.?",
+                options: ["Looping technique", " Optimization", " Function calling itself", "other"],
+                correctAnswer: " Function calling itself"
+            }
+        ];
+
+        const Quiz = () => {
+            const [userAnswers, setUserAnswers] = useState(Array(questions.length).fill(null));
+            const [showScore, setShowScore] = useState(false);
+            const [score, setScore] = useState(0);
+
+            const handleAnswerChange = (index, answer) => {
+                const newAnswers = [...userAnswers];
+                newAnswers[index] = answer;
+                setUserAnswers(newAnswers);
+            };
+
+            const handleSubmit = () => {
+                let newScore = 0;
+                userAnswers.forEach((answer, index) => {
+                    if (answer === questions[index].correctAnswer) {
+                        newScore++;
+                    }
+                });
+                setScore(newScore);
+                setShowScore(true);
+            };
+
+            const restartQuiz = () => {
+                setUserAnswers(Array(questions.length).fill(null));
+                setShowScore(false);
+                setScore(0);
+            };
+
+            return (
+                <div>
+                    {!showScore ? (
+                        <div>
+                            {questions.map((question, index) => (
+                                <div key={index}>
+                                    <h3>{question.question}</h3>
+                                    <ul>
+                                        {question.options.map((option, optionIndex) => (
+                                            <li key={optionIndex}>
+                                                <label>
+                                                    <input
+                                                        type="radio"
+                                                        name={`question${index}`}
+                                                        value={option}
+                                                        onChange={() => handleAnswerChange(index, option)}
+                                                    />
+                                                    {option}
+                                                </label>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                            <button onClick={handleSubmit}>Submit</button>
+                        </div>
+                    ) : (
+                        <div>
+                            <h2>Your Score: {score}/{questions.length}</h2>
+                            <button onClick={restartQuiz}>Restart Quiz</button>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+        ReactDOM.createRoot(rootElement).render(<Quiz/>)
+    </script>
+</body>
+</html>
