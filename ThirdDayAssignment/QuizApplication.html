@@ -60,11 +60,13 @@
                 const newAnswers = [...userAnswers];
                 newAnswers[index] = answer;
                 setUserAnswers(newAnswers);
+                // console.log(userAnswers);
             };
 
             const handleSubmit = () => {
                 let newScore = 0;
                 userAnswers.forEach((answer, index) => {
+                    console.log(answer);
                     if (answer === questions[index].correctAnswer) {
                         newScore++;
                     }
