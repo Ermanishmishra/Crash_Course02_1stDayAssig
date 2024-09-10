@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <style>
+    .greeting-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 50px;
+        margin: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid red;
+        margin: auto;
+    }
+    #root{
+        margin: auto;
+        border: 2px solid black;
+        padding: 20px;
+    }
+
+</style>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let rootElement = document.getElementById("root")
+
+    function Greeting({greeting,name}){
+          return <div className="greeting-card">
+            <h3>{greeting}</h3>
+            <p>Dear : {name}</p>
+            </div>
+    }
+
+    function App(){
+        let greetingCard = [
+            {greeting:"Happy Birthday", name:"John Doe"},
+            {greeting:"Congratulation", name:"Jane Smit"}
+        ]
+        return <>
+        {greetingCard.map(function(card,index){
+            return <Greeting key = {index} greeting = {card.greeting} name = {card.name}/>
+        })}
+        </>
+    }
+    ReactDOM.createRoot(rootElement).render(<App/>)
+  </script>
+</html>
