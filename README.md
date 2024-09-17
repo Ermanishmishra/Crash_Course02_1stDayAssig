@@ -1,1 +1,1 @@
-# Crash_Course02_1stDayAssig
+# Crash_Course02_1stDayAssignment
