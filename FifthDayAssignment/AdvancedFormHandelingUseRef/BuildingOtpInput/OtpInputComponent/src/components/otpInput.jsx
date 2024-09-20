@@ -48,7 +48,7 @@ const OTPInput = ({ length = 6 }) => {
     const enteredOtp = otp.join("");
     alert(`Entered OTP: ${enteredOtp}`);
   };
-
+  
   const isOtpComplete = otp.every(digit => digit !== "");
 
   return (
